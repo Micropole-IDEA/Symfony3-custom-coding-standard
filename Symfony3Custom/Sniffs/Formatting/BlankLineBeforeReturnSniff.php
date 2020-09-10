@@ -26,7 +26,7 @@
  * @link     https://github.com/escapestudios/Symfony3Custom-coding-standard
  */
 class Symfony3Custom_Sniffs_Formatting_BlankLineBeforeReturnSniff
-    implements PHP_CodeSniffer_Sniff
+    implements \PHP_CodeSniffer\Sniffs\Sniff
 {
     /**
      * A list of tokenizers this sniff supports.
@@ -51,13 +51,13 @@ class Symfony3Custom_Sniffs_Formatting_BlankLineBeforeReturnSniff
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile All the tokens found in the document.
-     * @param int                  $stackPtr  The position of the current token in
-     *                                        the stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile All the tokens found in the document.
+     * @param int                         $stackPtr  The position of the current token in
+     *                                               the stack passed in $tokens.
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(\PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
     {
         $tokens          = $phpcsFile->getTokens();
         $current         = $stackPtr;

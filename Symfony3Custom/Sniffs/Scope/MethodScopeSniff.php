@@ -12,9 +12,11 @@
  * @link     https://github.com/escapestudios/Symfony3Custom-coding-standard
  */
 
-if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false) {
-    throw new PHP_CodeSniffer_Exception(
-        'Class PHP_CodeSniffer_Standards_AbstractScopeSniff not found'
+use PHP_CodeSniffer\Files\File;
+
+if (class_exists('\PHP_CodeSniffer\Sniffs\AbstractScopeSniff', true) === false) {
+    throw new \PHP_CodeSniffer\Exceptions\RuntimeException(
+        'Class \PHP_CodeSniffer\Sniffs\AbstractScopeSniff not found'
     );
 }
 
@@ -30,7 +32,7 @@ if (class_exists('PHP_CodeSniffer_Standards_AbstractScopeSniff', true) === false
  * @link     http://pear.php.net/package/PHP_CodeSniffer
  */
 class Symfony3Custom_Sniffs_Scope_MethodScopeSniff
-    extends PHP_CodeSniffer_Standards_AbstractScopeSniff
+    extends \PHP_CodeSniffer\Sniffs\AbstractScopeSniff
 {
     /**
      * Constructs a Symfony3Custom_Sniffs_Scope_MethodScopeSniff.
@@ -44,14 +46,14 @@ class Symfony3Custom_Sniffs_Scope_MethodScopeSniff
     /**
      * Processes the function tokens within the class.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file where this token was found.
-     * @param int                  $stackPtr  The position where the token was found.
-     * @param int                  $currScope The current scope opener token.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file where this token was found.
+     * @param int                         $stackPtr  The position where the token was found.
+     * @param int                         $currScope The current scope opener token.
      *
      * @return void
      */
     protected function processTokenWithinScope(
-        PHP_CodeSniffer_File $phpcsFile,
+        \PHP_CodeSniffer\Files\File $phpcsFile,
         $stackPtr,
         $currScope
     ) {
@@ -64,7 +66,7 @@ class Symfony3Custom_Sniffs_Scope_MethodScopeSniff
         }
 
         $modifier = $phpcsFile->findPrevious(
-            PHP_CodeSniffer_Tokens::$scopeModifiers,
+            \PHP_CodeSniffer\Util\Tokens::$scopeModifiers,
             $stackPtr
         );
 
@@ -77,4 +79,19 @@ class Symfony3Custom_Sniffs_Scope_MethodScopeSniff
         }
 
     }
+
+    /**
+     * Processes a token that is found within the scope that this test is
+     * listening to.
+     *
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file where this token was found.
+     * @param int                         $stackPtr  The position in the stack where this
+     *                                               token was found.
+     *
+     * @return void
+     */
+    protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
+    {
+
+    }//end processTokenOutsideScope()
 }

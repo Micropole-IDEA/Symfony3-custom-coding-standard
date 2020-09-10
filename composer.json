@@ -1,23 +1,18 @@
 {
-    "name": "endouble/symfony3-custom-coding-standard",
+    "name": "Micropole-IDEA/symfony3-custom-coding-standard",
     "type": "coding-standard",
-    "description": "Customized CodeSniffer ruleset for the Symfony3 projects",
-    "keywords": ["Symfony3", "coding standard", "phpcs"],
-    "homepage": "https://github.com/Endouble/Symfony3-coding-standard",
+    "description": "Fork of endouble/symfony3-custom-coding-standard including PHPCS 3 compatibility",
+    "keywords": ["Symfony3", "coding standard", "phpcs 3"],
+    "homepage": "https://github.com/Micropole-IDEA/Symfony3-custom-coding-standard.git",
     "license": "MIT",
     "authors": [
         {
-            "name": "David Joos",
-            "email": "david.joos@escapestudios.com"
+            "name": "David GALAUP",
+            "email": "dgalaup@micropole.com"
         }
     ],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.x-dev"
-        }
-    },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "squizlabs/php_codesniffer": "~2.0"
+        "squizlabs/php_codesniffer": "^3.0"
     }
 }

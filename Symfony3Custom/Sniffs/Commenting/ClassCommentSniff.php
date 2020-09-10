@@ -12,14 +12,14 @@
  * @link     https://github.com/escapestudios/Symfony3Custom-coding-standard
  */
 
-if (class_exists('PHP_CodeSniffer_Tokenizers_Comment', true) === false) {
-    $error = 'Class PHP_CodeSniffer_Tokenizers_Comment not found';
-    throw new PHP_CodeSniffer_Exception($error);
+if (class_exists('\PHP_CodeSniffer\Tokenizers\Comment', true) === false) {
+    $error = 'Class \PHP_CodeSniffer\Tokenizers\Comment not found';
+    throw new \PHP_CodeSniffer\Exceptions\RuntimeException($error);
 }
 
-if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false) {
-    $error = 'Class PEAR_Sniffs_Commenting_ClassCommentSniff not found';
-    throw new PHP_CodeSniffer_Exception($error);
+if (class_exists('\PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff', true) === false) {
+    $error = 'Class \PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff not found';
+    throw new \PHP_CodeSniffer\Exceptions\RuntimeException($error);
 }
 
 /**
@@ -45,7 +45,7 @@ if (class_exists('PEAR_Sniffs_Commenting_ClassCommentSniff', true) === false) {
  * @link     http://pear.php.net/package/PHP_CodeSniffer
  */
 class Symfony3Custom_Sniffs_Commenting_ClassCommentSniff
-    extends PEAR_Sniffs_Commenting_ClassCommentSniff
+    extends \PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\ClassCommentSniff
 {
     /**
      * Tags in correct order and related info.

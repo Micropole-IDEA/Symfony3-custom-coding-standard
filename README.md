@@ -2,7 +2,7 @@
 
 This is a fork of https://github.com/djoos/Symfony2-coding-standard
 These are the Symfony2 standards, but tweaked to meet some needs we have in our CSB project, for example to comply with 
-[PSR-12](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md) for PHP 7
+[PSR-12](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md) for PHP 7 and it's compatible with PHPCS 3
 
 ## Installation
 
@@ -15,7 +15,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
  "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:Endouble/Symfony3-custom-coding-standard"
+            "url": "git@github.com:Micropole-IDEA/Symfony3-custom-coding-standard"
         }
 ```
 
@@ -23,7 +23,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 ```json
  "require-dev": {
-        "endouble/symfony3-custom-coding-standard": "^2.10"
+        "Micropole-IDEA/symfony3-custom-coding-standard": "^3.0"
     },
 ```
 
@@ -31,7 +31,7 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 The path is relative to the php_codesniffer install path. This is important to make it work both in your vagrant, local machine and PHPStorm
 
-        bin/phpcs --config-set installed_paths ../../endouble/symfony3-custom-coding-standard
+        bin/phpcs --config-set installed_paths ../../Micropole-IDEA/symfony3-custom-coding-standard
 
 4. Check the installed coding standards for "Symfony2"
 

@@ -12,9 +12,9 @@
  * @link     https://github.com/escapestudios/Symfony3Custom-coding-standard
  */
 
-if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false) {
-    $error = 'Class PEAR_Sniffs_Commenting_FunctionCommentSniff not found';
-    throw new PHP_CodeSniffer_Exception($error);
+if (class_exists('\PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff', true) === false) {
+    $error = 'Class \PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff not found';
+    throw new \PHP_CodeSniffer\Exceptions\RuntimeException($error);
 }
 
 /**
@@ -36,18 +36,18 @@ if (class_exists('PEAR_Sniffs_Commenting_FunctionCommentSniff', true) === false)
  * @link     http://pear.php.net/package/PHP_CodeSniffer
  */
 class Symfony3Custom_Sniffs_Commenting_FunctionCommentSniff
-    extends PEAR_Sniffs_Commenting_FunctionCommentSniff
+    extends \PHP_CodeSniffer\Standards\PEAR\Sniffs\Commenting\FunctionCommentSniff
 {
     /**
      * Processes this test, when one of its tokens is encountered.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
-     *                                        in the stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
+     * @param int                         $stackPtr  The position of the current token
+     *                                               in the stack passed in $tokens.
      *
      * @return void
      */
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(\PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
     {
         if (false === $commentEnd = $phpcsFile->findPrevious(
             array(
@@ -81,16 +81,16 @@ class Symfony3Custom_Sniffs_Commenting_FunctionCommentSniff
     /**
      * Process the return comment of this function comment.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile    The file being scanned.
-     * @param int                  $stackPtr     The position of the current token
-     *                                           in the stack passed in $tokens.
-     * @param int                  $commentStart The position in the stack
-     *                                           where the comment started.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile    The file being scanned.
+     * @param int                         $stackPtr     The position of the current token
+     *                                                  in the stack passed in $tokens.
+     * @param int                         $commentStart The position in the stack
+     *                                                  where the comment started.
      *
      * @return void
      */
     protected function processReturn(
-        PHP_CodeSniffer_File $phpcsFile,
+        \PHP_CodeSniffer\Files\File $phpcsFile,
         $stackPtr,
         $commentStart
     ) {
@@ -129,11 +129,11 @@ class Symfony3Custom_Sniffs_Commenting_FunctionCommentSniff
     }
 
     /**
-     * @param PHP_CodeSniffer_File $phpcsFile
-     * @param int                  $stackPtr
-     * @param int                  $commentStart
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile
+     * @param int                         $stackPtr
+     * @param int                         $commentStart
      */
-    protected function processWhitespace(PHP_CodeSniffer_File $phpcsFile, int $stackPtr, int $commentStart)
+    protected function processWhitespace(\PHP_CodeSniffer\Files\File $phpcsFile, int $stackPtr, int $commentStart)
     {
         $tokens = $phpcsFile->getTokens();
         $before = $phpcsFile->findPrevious(T_WHITESPACE, ($commentStart - 1), null, true);
@@ -177,13 +177,13 @@ class Symfony3Custom_Sniffs_Commenting_FunctionCommentSniff
     /**
      * Is the comment an inheritdoc?
      *
-     * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
-     * @param int                  $stackPtr  The position of the current token
-     *                                        in the stack passed in $tokens.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile The file being scanned.
+     * @param int                         $stackPtr  The position of the current token
+     *                                               in the stack passed in $tokens.
      *
      * @return boolean True if the comment is an inheritdoc
      */
-    protected function isInheritDoc(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    protected function isInheritDoc(\PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -198,16 +198,16 @@ class Symfony3Custom_Sniffs_Commenting_FunctionCommentSniff
     /**
      * Process the function parameter comments.
      *
-     * @param PHP_CodeSniffer_File $phpcsFile    The file being scanned.
-     * @param int                  $stackPtr     The position of the current token
-     *                                           in the stack passed in $tokens.
-     * @param int                  $commentStart The position in the stack
-     *                                           where the comment started.
+     * @param \PHP_CodeSniffer\Files\File $phpcsFile    The file being scanned.
+     * @param int                         $stackPtr     The position of the current token
+     *                                                  in the stack passed in $tokens.
+     * @param int                         $commentStart The position in the stack
+     *                                                  where the comment started.
      *
      * @return void
      */
     protected function processParams(
-        PHP_CodeSniffer_File $phpcsFile,
+        \PHP_CodeSniffer\Files\File $phpcsFile,
         $stackPtr,
         $commentStart
     ) {
