@@ -1,5 +1,5 @@
 {
-    "name": "Micropole-IDEA/symfony3-custom-coding-standard",
+    "name": "micropole-idea/symfony3-custom-coding-standard",
     "type": "coding-standard",
     "description": "Fork of endouble/symfony3-custom-coding-standard including PHPCS 3 compatibility",
     "keywords": ["Symfony3", "coding standard", "phpcs 3"],
